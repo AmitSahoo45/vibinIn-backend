@@ -22,6 +22,9 @@ app.use(bodyParser.urlencoded({
 
 app.use(cors());
 
+app.get('/', (req, res) => {
+    res.send('Hello World')
+})
 app.use('/users', UserRouter)
 app.use('/posts', auth, PostsRouter)
 app.use('/connection', auth, ConnectionRouter)
