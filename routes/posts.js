@@ -7,16 +7,17 @@ const { getPosts,
     deletePost,
     likePost
 } = require('../controllers/posts')
-const router = express.Router();
 
+const auth = require('../middleware/auth');
+const router = express.Router();
 
 router.get('/', getPosts);
 router.get('/search', getPostsBySearch);
-router.post('/', createPost);
-router.patch('/:id', updatePost);
-router.get('/:id', getPost);
-router.delete('/:id', deletePost);
-router.patch('/:id/likePost', likePost);
+router.post('/', auth, createPost);
+router.patch('/:id', auth, updatePost);
+router.get('/:id', auth, getPost);
+router.delete('/:id', auth, deletePost);
+router.patch('/:id/likePost', auth, likePost);
 
 
 module.exports = router;
