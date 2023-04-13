@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send('Hello World')
+    res.send('Welcome to VibIn API')
 })
 app.use('/users', UserRouter)
 app.use('/posts', PostsRouter)
